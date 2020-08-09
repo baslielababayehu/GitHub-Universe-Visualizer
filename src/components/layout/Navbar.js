@@ -7,7 +7,7 @@ const Navbarcustom = ({ icon, title }) => {
     <nav
       expand="lg"
       style={{ backgroundColor: "success" }}
-      className="navbar navbar-light border border-secondary mb-3"
+      className="navbar navbar-light border mb-3"
     >
       <Navbar.Brand href="#home">
         <i style={{ fontSize: "1.5rem" }} className={icon}></i> {title}
