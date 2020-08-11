@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Navbarcustom = ({ icon, title }) => {
   return (
@@ -12,6 +13,14 @@ const Navbarcustom = ({ icon, title }) => {
       <Navbar.Brand href="#home">
         <i style={{ fontSize: "1.5rem" }} className={icon}></i> {title}
       </Navbar.Brand>
+      <ul style={{ listStyle: "none", display: "inline" }}>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+      </ul>
     </nav>
   );
 };
