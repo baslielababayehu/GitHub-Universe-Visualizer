@@ -1,5 +1,4 @@
 import React from "react";
-import { propTypes } from "react-bootstrap/esm/Image";
 // import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";

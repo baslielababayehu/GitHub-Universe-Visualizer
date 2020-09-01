@@ -13,11 +13,11 @@ const Navbarcustom = ({ icon, title }) => {
       <Navbar.Brand href="#home">
         <i style={{ fontSize: "1.5rem" }} className={icon}></i> {title}
       </Navbar.Brand>
-      <ul style={{ listStyle: "none", display: "inline" }}>
-        <li>
+      <ul>
+        <li style={{ display: "inline" }}>
           <Link to="/">Home</Link>
         </li>
-        <li>
+        <li style={{ display: "inline" }} className="ml-4">
           <Link to="/about">About</Link>
         </li>
       </ul>

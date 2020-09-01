@@ -2,6 +2,7 @@ import React, { Fragment, Component } from "react";
 import Spinner from "../layout/Spinner";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import Repos from "../Repos/Repos";
 
 export class User extends Component {
   componentDidMount() {
@@ -12,6 +13,7 @@ export class User extends Component {
   static propTypes = {
     loading: PropTypes.bool,
     user: PropTypes.object.isRequired,
+    // repos: PropTypes.array.isRequired,
     getUser: PropTypes.func.isRequired,
     getUserRepos: PropTypes.func.isRequired,
   };
@@ -117,6 +119,7 @@ export class User extends Component {
             </div>
           </div>
         </div>
+        <Repos repos={this.props.repos} />
       </div>
     );
   }
