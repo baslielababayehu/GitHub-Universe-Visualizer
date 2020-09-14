@@ -23,29 +23,40 @@ const Search = () => {
 
   return (
     <div className="px-2">
-      <form onSubmit={submit} className="form">
-        <input
-          className="form-control form-control-sm"
-          type="text"
-          placeholder="Search for a GitHub User User"
-          id="search-button"
-          value={text}
-          onChange={updateValue}
-        />
-        <input
-          type="submit"
-          value="search"
-          className="btn btn-dark btn-block my-2 "
-        />
-      </form>
-      {githubContext.users.length > 0 && (
-        <button
-          className="btn btn-secondary btn-block my-2"
-          onClick={githubContext.clearUsers}
-        >
-          Clear
-        </button>
-      )}
+      <div className="row m-0 p-0">
+        <form className="form col-12" id="my-form">
+          <div className="row">
+            <input
+              className="form-control form-control-sm col-10"
+              type="text"
+              placeholder="Search for a GitHub User User"
+              id="search-button"
+              value={text}
+              onChange={updateValue}
+            />
+
+            <a href="#" onClick={submit} className="col-1">
+              <i
+                className="fa fa-search"
+                style={{ fontSize: "2rem", color: "#D88C9A" }}
+              ></i>
+            </a>
+            {githubContext.users.length > 0 && (
+              <button
+                className="btn col-1"
+                style={{ backgroundColor: "#F1E3D3" }}
+                onClick={githubContext.clearUsers}
+              >
+                Clear{" "}
+                <i
+                  className="fa fa-trash"
+                  // style={{ backgroundColor: "white" }}
+                ></i>
+              </button>
+            )}
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

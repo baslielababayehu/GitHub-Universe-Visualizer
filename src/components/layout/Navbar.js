@@ -7,18 +7,23 @@ const Navbarcustom = ({ icon, title }) => {
   return (
     <nav
       expand="lg"
-      style={{ backgroundColor: "success" }}
+      style={{ backgroundColor: "black", boxShadow: "1px 1px 7px grey" }}
       className="navbar navbar-light border mb-3"
     >
-      <Navbar.Brand href="#home">
-        <i style={{ fontSize: "1.5rem" }} className={icon}></i> {title}
+      <Navbar.Brand href="#home" style={{ fontSize: "1rem", color: "white" }}>
+        <i style={{ fontSize: "1.5rem", color: "white" }} className={icon}></i>{" "}
+        {title}
       </Navbar.Brand>
       <ul>
         <li style={{ display: "inline" }}>
-          <Link to="/">Home</Link>
+          <Link to="/" style={{ color: "white" }}>
+            Home
+          </Link>
         </li>
         <li style={{ display: "inline" }} className="ml-4">
-          <Link to="/about">About</Link>
+          <Link to="/about" style={{ color: "white" }}>
+            About
+          </Link>
         </li>
       </ul>
     </nav>

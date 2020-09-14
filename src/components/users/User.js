@@ -26,13 +26,14 @@ const User = ({ match }) => {
     public_repos,
     public_gists,
     hireable,
+    languages_url,
   } = githubContext.user;
 
   if (githubContext.loading) return <Spinner />;
   return (
     <div className="p-2">
       <Link to="/" className="btn btn-light">
-        <i class="fa fa-chevron-left"></i> Back to search
+        <i className="fa fa-chevron-left"></i> Back to search
       </Link>
       <div className="ml-2"></div>
       <div className="card col-12 p-2">

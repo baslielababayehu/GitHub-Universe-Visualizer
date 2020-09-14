@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import * as V from "victory";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbarcustom from "./components/layout/Navbar";
 import User from "./components/users/User";
@@ -17,7 +18,11 @@ const App = () => {
       <AlertState>
         <Router>
           <div className="App">
-            <Navbarcustom icon="fa fa-github" title="GitHub Insights" />
+            <Navbarcustom
+              icon="fa fa-github"
+              title="GitHub Insights"
+              style={{ color: "white" }}
+            />
             <Alert />
             <Switch>
               <Route exact path="/" component={Home} />
