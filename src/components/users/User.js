@@ -3,6 +3,7 @@ import Spinner from "../layout/Spinner";
 import { Link } from "react-router-dom";
 import Repos from "../Repos/Repos";
 import GithubContext from "../../context/github/githubContext";
+import { ToggleDisplays } from "../Repos/ToggleDisplays";
 
 const User = ({ match }) => {
   const githubContext = useContext(GithubContext);
@@ -32,12 +33,12 @@ const User = ({ match }) => {
   if (githubContext.loading) return <Spinner />;
   return (
     <div className="p-2">
-      <Link to="/" className="btn btn-light">
+      <Link to="/" className="btn btn-sm btn-secondary mb-2">
         <i className="fa fa-chevron-left"></i> Back to search
       </Link>
       <div className="ml-2"></div>
-      <div className="card col-12 p-2">
-        <div className="row">
+      <div className="col-12 p-2" style={{}}>
+        <div className="row m-0 p-0">
           <div className="col-auto">
             <img
               src={avatar_url}
@@ -47,7 +48,7 @@ const User = ({ match }) => {
                 maxWidth: "150px",
                 display: "flex",
                 justifyContent: "center",
-                borderRadius: "4px",
+                borderRadius: "75px",
               }}
             />
             Hireable:{" "}
@@ -57,7 +58,7 @@ const User = ({ match }) => {
               <i className="fa fa-times-circle text-danger" />
             )}
             <div>
-              <a href={html_url} className="btn btn-dark my-1">
+              <a href={html_url} className="btn btn-secondary my-1">
                 Visit GitHub Profile
               </a>
             </div>
@@ -101,21 +102,19 @@ const User = ({ match }) => {
           className="row"
           style={{ alignItems: "center", justifyContent: "center" }}
         >
-          <div className="badge badge-secondary col-2 m-2">
-            Followers: {followers}
+          <div className=" col m-2">
+            <i className="fa fa-chart-line"></i>Followers: {followers}
           </div>
-          <div className="badge badge-success col-2 m-2">
-            following: {following}
-          </div>
-          <div className="badge badge-dark col-2 m-2">
-            public repos: {public_repos}
-          </div>
-          <div className="badge badge-danger col-2 m-2">
-            Public Gists: {public_gists}
-          </div>
+          <div className=" col m-2">following: {following}</div>
+          <div className=" col m-2">public repos: {public_repos}</div>
+          <div className=" col m-2">Public Gists: {public_gists}</div>
         </div>
       </div>
-      <Repos repos={githubContext.repos} />
+      <br></br>
+      <h5>Public Repos</h5>
+      <div className="row p-1 m-0">
+        <Repos repos={githubContext.repos} />
+      </div>
     </div>
   );
 };

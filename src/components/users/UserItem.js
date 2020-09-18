@@ -6,23 +6,22 @@ import { Link } from "react-router-dom";
 const UserItem = ({ user: { login, avatar_url, html_url } }) => {
   return (
     <div
-      className=" col-lg-3 col-m-4 col-xs-12 card  text-white my-2 mx-3 pt-2"
+      className=" col-xl-2 col-lg-3 col-m-4 col-sm-5 col-xs-12 card  text-white my-2  mr-2 pt-2 "
       style={{
-        backgroundColor: "black",
+        backgroundColor: "#292b2c",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
       }}
     >
       <img
-        style={{ borderRadius: "30px" }}
+        style={{ borderRadius: "75px", width: "80px" }}
         src={avatar_url}
         alt=""
         className=""
-        style={{ width: "80px" }}
       />
       <h3>{login}</h3>
-      <Link to={`/user/${login}`} className="btn btn-dark btn-sm my-3">
+      <Link to={`/user/${login}`} className="btn btn-secondary btn-sm my-3">
         View Full Profile
       </Link>
     </div>

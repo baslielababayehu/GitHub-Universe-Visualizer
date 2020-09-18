@@ -7,7 +7,7 @@ const Navbarcustom = ({ icon, title }) => {
   return (
     <nav
       expand="lg"
-      style={{ backgroundColor: "black", boxShadow: "1px 1px 7px grey" }}
+      style={{ backgroundColor: "#292b2c", boxShadow: "1px 1px 7px grey" }}
       className="navbar navbar-light border mb-3"
     >
       <Navbar.Brand href="#home" style={{ fontSize: "1rem", color: "white" }}>

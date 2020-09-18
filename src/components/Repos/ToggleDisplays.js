@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useEffect } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 import { useContext } from "react";
@@ -19,56 +20,6 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import FolderIcon from "@material-ui/icons/Folder";
 import DeleteIcon from "@material-ui/icons/Delete";
-
-export const RepoItem = ({ repo }) => {
-  useEffect(() => {
-    returnLanguages();
-    //eslint-disable-next-line
-  }, []);
-  const classes = useStyles();
-  const [dense, setDense] = React.useState(false);
-  const [secondary, setSecondary] = React.useState(false);
-
-  const returnLanguages = async () => {
-    const res = await axios
-      .get(repo.languages_url)
-      .then((response) => response)
-      .catch(function (error) {
-        console.log(error);
-      });
-    console.log(res);
-  };
-
-  return (
-    <div className={classes.root}>
-      <div className="col-12 border ">
-        <div className={classes.demo}>
-          <List dense={dense}>
-            <ListItem>
-              <ListItemAvatar>
-                <Avatar>
-                  <FolderIcon />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary={repo.name}
-                secondary={secondary ? "Secondary text" : null}
-              />{" "}
-              <a href={repo.html_url}>Link</a>
-              <ListItemSecondaryAction>
-                <IconButton edge="end" aria-label="delete"></IconButton>
-              </ListItemSecondaryAction>
-            </ListItem>
-          </List>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-RepoItem.propTypes = {
-  repo: PropTypes.object.isRequired,
-};
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -91,4 +42,33 @@ function generate(element) {
   );
 }
 
-export default RepoItem;
+export const ToggleDisplays = () => {
+  const classes = useStyles();
+  const [dense, setDense] = React.useState(false);
+  const [secondary, setSecondary] = React.useState(false);
+
+  return (
+    <div>
+      <FormGroup row>
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={dense}
+              onChange={(event) => setDense(event.target.checked)}
+            />
+          }
+          label="Enable dense"
+        />
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={secondary}
+              onChange={(event) => setSecondary(event.target.checked)}
+            />
+          }
+          label="Show Repo description"
+        />
+      </FormGroup>
+    </div>
+  );
+};

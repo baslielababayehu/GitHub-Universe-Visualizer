@@ -25,9 +25,9 @@ const Search = () => {
     <div className="px-2">
       <div className="row m-0 p-0">
         <form className="form col-12" id="my-form">
-          <div className="row">
+          <div className="row m-0">
             <input
-              className="form-control form-control-sm col-10"
+              className="form-control form-control-sm col-8"
               type="text"
               placeholder="Search for a GitHub User User"
               id="search-button"
@@ -35,7 +35,7 @@ const Search = () => {
               onChange={updateValue}
             />
 
-            <a href="#" onClick={submit} className="col-1">
+            <a href="#" onClick={submit} className="col-auto ">
               <i
                 className="fa fa-search"
                 style={{ fontSize: "2rem", color: "#D88C9A" }}
@@ -43,13 +43,12 @@ const Search = () => {
             </a>
             {githubContext.users.length > 0 && (
               <button
-                className="btn col-1"
-                style={{ backgroundColor: "#F1E3D3" }}
+                className="btn btn-sm text-white col-1  mx-2 p-0"
+                style={{ backgroundColor: "#292b2c" }}
                 onClick={githubContext.clearUsers}
               >
-                Clear{" "}
                 <i
-                  className="fa fa-trash"
+                  className="fa fa-times"
                   // style={{ backgroundColor: "white" }}
                 ></i>
               </button>

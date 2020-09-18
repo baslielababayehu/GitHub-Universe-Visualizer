@@ -10,7 +10,14 @@ const Users = () => {
   }
   return (
     <React.Fragment>
-      <div className="row">
+      <div
+        className="row m-0 p-2"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         {githubContext.users.map((user) => (
           <UserItem key={user.id} user={user} />
         ))}
