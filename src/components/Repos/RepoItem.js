@@ -7,37 +7,30 @@ import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
-import FormGroup from "@material-ui/core/FormGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
+
 import FolderIcon from "@material-ui/icons/Folder";
-import DeleteIcon from "@material-ui/icons/Delete";
 
 export const RepoItem = ({ repo }) => {
-  useEffect(() => {
-    returnLanguages();
-    //eslint-disable-next-line
-  }, []);
+  // useEffect(() => {
+  //   returnLanguages();
+  //   //eslint-disable-next-line
+  // }, []);
   const classes = useStyles();
   const [dense, setDense] = React.useState(false);
   const [secondary, setSecondary] = React.useState(false);
 
-  const returnLanguages = async () => {
-    const res = await axios
-      .get(repo.languages_url)
-      .then((response) => response)
-      .catch(function (error) {
-        console.log(error);
-      });
-    console.log(res);
-  };
+  // const returnLanguages = async () => {
+  //   const res = await axios
+  //     .get(repo.languages_url)
+  //     .then((response) => response)
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  //   console.log(res);
+  // };
 
   return (
     <div className={classes.root}>
@@ -55,9 +48,7 @@ export const RepoItem = ({ repo }) => {
                 secondary={secondary ? "Secondary text" : null}
               />{" "}
               <a href={repo.html_url}>Link</a>
-              <ListItemSecondaryAction>
-                <IconButton edge="end" aria-label="delete"></IconButton>
-              </ListItemSecondaryAction>
+              <IconButton edge="end" aria-label="delete"></IconButton>
             </ListItem>
           </List>
         </div>
