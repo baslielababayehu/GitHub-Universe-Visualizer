@@ -3,6 +3,7 @@ import Search from "../users/Search";
 import Users from "../users/users";
 import GithubContext from "../../context/github/githubContext";
 import { useContext } from "react";
+import Footer from "../layout/Footer";
 
 export const Home = () => {
   const githubContext = useContext(GithubContext);
@@ -10,7 +11,10 @@ export const Home = () => {
   return (
     <Fragment>
       <Search />
-      <div className="mt-4" style={{ borderTop: "0.1rem solid" }}>
+      <div
+        className="mt-4"
+        style={{ borderTop: "0.1rem solid", minHeight: "80vh" }}
+      >
         <div>
           {githubContext.users.length > 0 ? (
             <div
@@ -28,6 +32,7 @@ export const Home = () => {
           <Users />
         </div>
       </div>
+      <Footer />
     </Fragment>
   );
 };

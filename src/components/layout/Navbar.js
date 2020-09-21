@@ -12,7 +12,7 @@ const Navbarcustom = ({ icon, title }) => {
     >
       <Navbar.Brand href="#home" style={{ fontSize: "1rem", color: "white" }}>
         <i style={{ fontSize: "1.5rem", color: "white" }} className={icon}></i>{" "}
-        {title}
+        GitHub Universe
       </Navbar.Brand>
       <ul>
         <li style={{ display: "inline" }}>

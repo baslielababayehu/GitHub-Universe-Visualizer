@@ -3,7 +3,8 @@ import Spinner from "../layout/Spinner";
 import { Link } from "react-router-dom";
 import Repos from "../Repos/Repos";
 import GithubContext from "../../context/github/githubContext";
-import { ToggleDisplays } from "../Repos/ToggleDisplays";
+import Visualizations from "../Repos/Visualizations";
+import { Footer } from "../layout/Footer";
 
 const User = ({ match }) => {
   const githubContext = useContext(GithubContext);
@@ -31,83 +32,99 @@ const User = ({ match }) => {
   } = githubContext.user;
 
   if (githubContext.loading) return <Spinner />;
+
   return (
     <div className="p-2">
-      <Link to="/" className="btn btn-sm btn-secondary mb-2">
+      <Link to="/" className="btn btn-sm btn-block btn-secondary mb-2">
         <i className="fa fa-chevron-left"></i> Back to search
       </Link>
       <div className="ml-2"></div>
       <div className="col-12 p-2" style={{}}>
-        <div className="row m-0 p-0">
-          <div className="col-auto">
+        <div
+          className="row m-0 p-0"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div
+            className="col-12 "
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <img
               src={avatar_url}
               alt=""
               style={{
                 height: "auto",
                 maxWidth: "150px",
-                display: "flex",
-                justifyContent: "center",
+
                 borderRadius: "75px",
               }}
             />
+          </div>
+          <div className="col-12 text-center mt-3">
+            {name ? (
+              <p>{name}</p>
+            ) : (
+              <p>
+                <em>Name not Listed</em>
+              </p>
+            )}
+          </div>
+          <div className="col-12 text-center">
+            {location ? (
+              <p>
+                <i class="fa fa-map-marker"></i> {location}
+              </p>
+            ) : (
+              <p>
+                <em>Location not available</em>
+              </p>
+            )}
+          </div>
+          <div className="col-12 text-center">
             Hireable:{" "}
             {hireable ? (
               <i className="fa fa-check text-success" />
             ) : (
               <i className="fa fa-times-circle text-danger" />
             )}
-            <div>
-              <a href={html_url} className="btn btn-secondary my-1">
-                Visit GitHub Profile
-              </a>
-            </div>
           </div>
-
-          <div className="col-4">
-            <Fragment>
-              <h3>Bio</h3>
-              {bio ? (
-                <p>{bio} </p>
-              ) : (
-                <p>
-                  <em>[no bio listed]</em>
-                </p>
-              )}
-            </Fragment>
+          <div className="text-center">
+            <a href={html_url} className="btn btn-secondary my-1">
+              Visit GitHub Profile
+            </a>
           </div>
-          <div className="col-4 border">
-            <Fragment>
-              <h3>Personal Information</h3>
-              {name ? (
-                <p>Name: {name}</p>
-              ) : (
-                <p>
-                  <em>Name not available</em>
-                </p>
-              )}
-              {location ? (
-                <ul>Location: {location}</ul>
-              ) : (
-                <p>
-                  <em>Location not available</em>
-                </p>
-              )}
-            </Fragment>
-          </div>
+          <br></br>
         </div>
       </div>
-      <div className="card col-12 mt-3">
+
+      <div className=" col-12 mt-3 ">
         <div
           className="row"
-          style={{ alignItems: "center", justifyContent: "center" }}
+          style={{
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "lightgray",
+          }}
         >
-          <div className=" col m-2">
-            <i className="fa fa-chart-line"></i>Followers: {followers}
+          <div className=" col-4 col-sm-4 col-xs-4 m-2 text-center">
+            Followers: {followers}
           </div>
-          <div className=" col m-2">following: {following}</div>
-          <div className=" col m-2">public repos: {public_repos}</div>
-          <div className=" col m-2">Public Gists: {public_gists}</div>
+          <div className=" col-4 col-sm-4 col-xs-4 m-2 text-center">
+            following: {following}
+          </div>
+          <div className=" col-4 col-sm-4 col-xs-4 m-2 text-center">
+            public repos: {public_repos}
+          </div>
+          <div className=" col-4 col-sm-4 col-xs-4 m-2 text-center">
+            Public Gists: {public_gists}
+          </div>
         </div>
       </div>
       <br></br>
@@ -115,6 +132,12 @@ const User = ({ match }) => {
       <div className="row p-1 m-0">
         <Repos repos={githubContext.repos} />
       </div>
+
+      <div style={{ minHeight: "50vh" }} className="mb-3">
+        <Visualizations repos={githubContext.repos} />
+      </div>
+
+      <Footer />
     </div>
   );
 };
