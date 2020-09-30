@@ -21,8 +21,8 @@ const Search = () => {
     }
   };
   const onEnter = (e) => {
-    e.preventDefault();
     if (e.key === "Enter") {
+      e.preventDefault();
       if (text === "") {
         alertContext.setAlert("Please enter something", "light");
       } else {
