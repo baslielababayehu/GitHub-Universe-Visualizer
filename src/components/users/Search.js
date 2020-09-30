@@ -20,6 +20,19 @@ const Search = () => {
       githubContext.searchUsers(document.getElementById("search-button").value);
     }
   };
+  const onEnter = (e) => {
+    e.preventDefault();
+    if (e.key === "Enter") {
+      if (text === "") {
+        alertContext.setAlert("Please enter something", "light");
+      } else {
+        setText(document.getElementById("search-button").value);
+        githubContext.searchUsers(
+          document.getElementById("search-button").value
+        );
+      }
+    }
+  };
 
   return (
     <div className="px-2">
@@ -29,10 +42,11 @@ const Search = () => {
             <input
               className="form-control form-control-sm col-8"
               type="text"
-              placeholder="Search for a GitHub User User"
+              placeholder="Search User e.g. Taylor Otwell"
               id="search-button"
               value={text}
               onChange={updateValue}
+              onKeyDown={onEnter}
             />
 
             <a href="#" onClick={submit} className="col-auto ">
